@@ -25,7 +25,8 @@
     1. Copy & paste basic [example from maplibre](https://maplibre.org/maplibre-gl-js-docs/example/simple-map/) into a useEffect
 0) console: npm start
 0) The browser should display the map, but . . . it looks like duplicated.
-![Issue](/readme_assets/issue%201%20-%20map%20duplicated.png)
+![Map duplicated](/readme_assets/issue%201%20-%20map%20duplicated.png)
 This is the first common issue. It happened because of the reference from useRef changed so it made a rerender duplicating the map. Posible solution could be replacing the useRef by a callback ref.
 Source: https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
-
+0) After implementing the useCallbackRef we get one map. It has an incorrect size, but nothing that ccs can not fix.
+![Map size incorrect](/readme_assets/issue%202%20-%20map%20size%20incorrect.png)
