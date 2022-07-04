@@ -1,6 +1,8 @@
 import maplibregl from "maplibre-gl";
 import { useEffect } from "react";
 import { useRefCallback } from "../../hooks";
+import { BaseStyles } from "./BaseStyles";
+import './maplibre-gl.css'
 
 export const Map = () => {
   const [setContainerRef, containerRef] = useRefCallback();
@@ -17,5 +19,5 @@ export const Map = () => {
     }
   }, [containerRef]);
 
-  return <div ref={setContainerRef}></div>;
+  return <div style={BaseStyles} ref={setContainerRef}></div>;
 };

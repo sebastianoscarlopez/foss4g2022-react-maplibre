@@ -30,3 +30,5 @@ This is the first common issue. It happened because of the reference from useRef
 Source: https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
 0) After implementing the useCallbackRef we get one map. It has an incorrect size, but nothing that ccs can not fix.
 ![Map size incorrect](/readme_assets/issue%202%20-%20map%20size%20incorrect.png)
+0) Adding `height: 100vh` style. Now Map size is ok, but something (the controls) appears below the map so there is a vertical scrolling.
+0) Download maplibre-gl.css file and import whitin Map component
