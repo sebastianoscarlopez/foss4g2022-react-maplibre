@@ -4,5 +4,5 @@ export const useRefCallback = () => {
   const [ref, setReference] = useState();
   const setRef = useCallback(node => setReference(node), []);
 
-  return [setRef, ref];
+  return [ref, setRef];
 };
