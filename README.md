@@ -45,3 +45,12 @@ This repository will be the summary of the presentation at the FOSS4G 2022 Firen
 5. Add props id, type, tiles and tileSize to Layer to render some example as https://maplibre.org/maplibre-gl-js-docs/example/wms/
 
 6. Adding source and layer on a map load event, into a useEffect, will triger layer already exist because of the rerender. So we need to add some if to avoid it.
+7. Everything is working now!
+
+### Adding Layers from geoportal
+
+1. From https://geoportal.cepal.org we can find the maps and layers.
+   As example the Bus lines of Montevideo, Uruguay https://geoportal.cepal.org/layers/geonode:lineas_omnibus_origen_destino_montevideo_3857
+
+2. After getting the url layer, just add a new Layer.
+   ![Uruguay Omnibus Lines](/readme_assets/omnibus%20uruguay.png)

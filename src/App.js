@@ -12,6 +12,14 @@ function App() {
         ]}
         tileSize={256}
       />
+      <Layer
+        id="layer2"
+        type="raster"
+        tiles={[
+          "https://geoportal.cepal.org/geoserver/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=geonode%3Alineas_omnibus_origen_destino_montevideo_3857&STYLES=&SRS=EPSG%3A3857&CRS=EPSG%3A3857&TILED=true&access_token=None&WIDTH=256&HEIGHT=256&BBOX={bbox-epsg-3857}",
+        ]}
+        tileSize={256}
+      />
     </Map>
   );
 }
