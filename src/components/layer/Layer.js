@@ -55,6 +55,5 @@ export const Layer = ({
     }
   }, [id, map, paint, type]);
 
-  console.log(map);
-  return <h1>map</h1>;
+  return null;
 };
