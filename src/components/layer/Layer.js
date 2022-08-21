@@ -42,8 +42,13 @@ export const Layer = ({
         "fill-extrusion-height",
         paint?.["fill-extrusion-height"]
       );
+      map.setPaintProperty(
+        id,
+        "fill-extrusion-opacity",
+        paint?.["fill-extrusion-opacity"]
+      );
     }
-  }, [id, map, paint]);
+  }, [id, map, paint, type]);
 
   console.log(map);
   return <h1>map</h1>;

@@ -40,3 +40,10 @@
 .customSlider-thumb:hover {
   box-shadow: 0 0 0 8px var(--main-color-hover);
 }
+
+.card {
+  background-color: rgb(177, 150, 226);
+  height: 70px;
+  opacity: 0.9;
+  padding-left: 12px;
+}

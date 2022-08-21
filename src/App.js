@@ -5,6 +5,7 @@ import ReactSlider from "react-slider";
 
 function App() {
   const [size, setSize] = React.useState(35);
+  const [opacity, setOpacity] = React.useState(75);
 
   return (
     <div className="App">
@@ -19,14 +20,32 @@ function App() {
           zIndex: 1,
         }}
       >
-        <ReactSlider
-          className="customSlider"
-          trackClassName="customSlider-track"
-          thumbClassName="customSlider-thumb"
-          value={size}
-          onChange={(e) => setSize(e)}
-          renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-        />
+        <div className="card">
+          <h4>Height</h4>
+          <ReactSlider
+            className="customSlider"
+            trackClassName="customSlider-track"
+            thumbClassName="customSlider-thumb"
+            value={size}
+            onChange={(e) => setSize(e)}
+            renderThumb={(props, state) => (
+              <div {...props}>{state.valueNow}</div>
+            )}
+          />
+        </div>
+        <div className="card">
+          <h4>Opacity</h4>
+          <ReactSlider
+            className="customSlider"
+            trackClassName="customSlider-track"
+            thumbClassName="customSlider-thumb"
+            value={opacity}
+            onChange={(e) => setOpacity(e)}
+            renderThumb={(props, state) => (
+              <div {...props}>{state.valueNow}</div>
+            )}
+          />
+        </div>
       </div>
       <Map>
         <Layer
@@ -54,13 +73,14 @@ function App() {
           typeSource="vector"
           type="fill-extrusion"
           tiles={[
-            // "https://tiles.kan.com.ar/data/construccion/{z}/{x}/{y}.pbf",
             "http://localhost:81/data/layer_1/{z}/{x}/{y}.pbf",
+            // "https://tiles.kan.com.ar/data/construccion/{z}/{x}/{y}.pbf",
             //"https://vectortiles.usig.buenosaires.gob.ar/cur3d/tejido/{z}/{x}/{y}.pbf?optimize=true",
-          ]} //"https://tiles.kan.com.ar/data/construccion/{z}/{y}/{x}.pbf"]}
+          ]}
           paint={{
-            "fill-extrusion-color": "#ffffff",
+            "fill-extrusion-color": "#ccffff",
             "fill-extrusion-height": ["*", size / 10, ["get", "niveles"]],
+            "fill-extrusion-opacity": opacity / 100,
           }}
           tileSize={512}
         />
