@@ -32,10 +32,6 @@ This repository will be the summary of the presentation at the FOSS4G 2022 Firen
 13. Adding `height: 100vh` style. Now Map size is ok, but something (the controls) appears below the map so there is a vertical scrolling.
 14. import 'maplibre-gl/dist/maplibre-gl.css' whitin Map component
 
-### Map Context
-
-0.
-
 ### Layer component
 
 1. Make a Layer component that returns null, expect a Map prop, console.log(Map)
@@ -49,8 +45,8 @@ This repository will be the summary of the presentation at the FOSS4G 2022 Firen
 
 ### Adding Layers from geoportal
 
-1. From https://geoportal.cepal.org we can find the maps and layers.
-   As example the Bus lines of Montevideo, Uruguay https://geoportal.cepal.org/layers/geonode:lineas_omnibus_origen_destino_montevideo_3857
+1. From some map site we can find the maps and layers.
+   As example a layer fom openstreet map https://tile.openstreetmap.org/{z}/{x}/{y}.png
 
 2. After getting the url layer, just add a new Layer.
-   ![Uruguay Omnibus Lines](/readme_assets/omnibus%20uruguay.png)
+   ![Buenos Aires](/readme_assets/buenos_aires.png)

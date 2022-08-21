@@ -5,7 +5,11 @@ import ReactSlider from "react-slider";
 
 function App() {
   const [size, setSize] = React.useState(35);
-  const [opacity, setOpacity] = React.useState(75);
+  const [opacity, setOpacity] = React.useState(90);
+
+  const [r, setR] = React.useState(177);
+  const [g, setG] = React.useState(150);
+  const [b, setB] = React.useState(226);
 
   return (
     <div className="App">
@@ -22,32 +26,86 @@ function App() {
       >
         <div className="card">
           <h4>Height</h4>
-          <ReactSlider
-            className="customSlider"
-            trackClassName="customSlider-track"
-            thumbClassName="customSlider-thumb"
-            value={size}
-            onChange={(e) => setSize(e)}
-            renderThumb={(props, state) => (
-              <div {...props}>{state.valueNow}</div>
-            )}
-          />
+          <div className="slider">
+            <ReactSlider
+              className="customSlider"
+              trackClassName="customSlider-track"
+              thumbClassName="customSlider-thumb"
+              value={size}
+              onChange={(e) => setSize(e)}
+              renderThumb={(props, state) => (
+                <div {...props}>{state.valueNow}</div>
+              )}
+            />
+          </div>
         </div>
         <div className="card">
           <h4>Opacity</h4>
-          <ReactSlider
-            className="customSlider"
-            trackClassName="customSlider-track"
-            thumbClassName="customSlider-thumb"
-            value={opacity}
-            onChange={(e) => setOpacity(e)}
-            renderThumb={(props, state) => (
-              <div {...props}>{state.valueNow}</div>
-            )}
-          />
+          <div className="slider">
+            <ReactSlider
+              className="customSlider"
+              trackClassName="customSlider-track"
+              thumbClassName="customSlider-thumb"
+              value={opacity}
+              onChange={(e) => setOpacity(e)}
+              renderThumb={(props, state) => (
+                <div {...props}>{state.valueNow}</div>
+              )}
+            />
+          </div>
+        </div>
+        <div className="card color">
+          <h4>Color</h4>
+          <div className="slider">
+            <ReactSlider
+              className="customSlider"
+              trackClassName="customSlider-track"
+              thumbClassName="customSlider-thumb"
+              max={255}
+              value={r}
+              onChange={(e) => setR(e)}
+              renderThumb={(props, state) => (
+                <div {...props}>{state.valueNow}</div>
+              )}
+            />
+          </div>
+          <div className="slider">
+            <ReactSlider
+              className="customSlider"
+              trackClassName="customSlider-track"
+              thumbClassName="customSlider-thumb"
+              max={255}
+              value={g}
+              onChange={(e) => setG(e)}
+              renderThumb={(props, state) => (
+                <div {...props}>{state.valueNow}</div>
+              )}
+            />
+          </div>
+          <div className="slider">
+            <ReactSlider
+              className="customSlider"
+              trackClassName="customSlider-track"
+              thumbClassName="customSlider-thumb"
+              max={255}
+              value={b}
+              onChange={(e) => setB(e)}
+              renderThumb={(props, state) => (
+                <div {...props}>{state.valueNow}</div>
+              )}
+            />
+          </div>
         </div>
       </div>
       <Map>
+        <Layer
+          id="layer-0"
+          typeSource="raster"
+          type="raster"
+          tiles={["https://tile.openstreetmap.org/{z}/{x}/{y}.png"]}
+          tileSize={256}
+          sourceLayer="default"
+        />
         <Layer
           id="layer-1"
           typeSource="raster"
@@ -73,13 +131,18 @@ function App() {
           typeSource="vector"
           type="fill-extrusion"
           tiles={[
-            "http://localhost:81/data/layer_1/{z}/{x}/{y}.pbf",
+            // "http://localhost:81/data/layer_1/{z}/{x}/{y}.pbf",
             // "https://tiles.kan.com.ar/data/construccion/{z}/{x}/{y}.pbf",
+            "https://tiles.kan.com.ar/data/tejido_gcba/{z}/{x}/{y}.pbf",
             //"https://vectortiles.usig.buenosaires.gob.ar/cur3d/tejido/{z}/{x}/{y}.pbf?optimize=true",
           ]}
           paint={{
-            "fill-extrusion-color": "#ccffff",
-            "fill-extrusion-height": ["*", size / 10, ["get", "niveles"]],
+            "fill-extrusion-color": `rgb(${r}, ${g}, ${b})`,
+            "fill-extrusion-height": [
+              "*",
+              size / 10,
+              ["/", ["get", "altura"], 3.5],
+            ],
             "fill-extrusion-opacity": opacity / 100,
           }}
           tileSize={512}

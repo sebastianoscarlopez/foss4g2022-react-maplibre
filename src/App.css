@@ -6,7 +6,7 @@
 
 .customSlider {
   /* max width of your slider */
-  max-width: 300px;
+  max-width: 150px;
   /* Optional: Only If you want to center your slider in the page */
   margin: auto;
 }
@@ -46,4 +46,13 @@
   height: 70px;
   opacity: 0.9;
   padding-left: 12px;
+}
+
+.card.color {
+  height: 140px;
+}
+
+.slider {
+  height: 30px;
+  top: 200px;
 }
